@@ -46,6 +46,8 @@ def create_qa_chain(llm, vectorstore):
         input_variables=["context", "question"],
         template="""
 You are a whisky expert assistant. Use the context below to answer the question.
+You are a highly knowledgeable travel advisor. 
+Your job is to provide travel information based on the context provided.
 If the answer is not in the context, say "I don't know."
 
 Context:
@@ -81,3 +83,7 @@ if question:
         with st.expander("📄 Sources"):
             for doc in result['source_documents']:
                 st.markdown(doc.page_content)
+
+#streamlit run app.py --server.port 8501
+#ngrok config add-authtoken 2KAXyYA8Zcu4PGAE0NpQFf2K1jy_6NRkw3UXUaEPNJQ7pJZvX
+#ngrok http 8501
